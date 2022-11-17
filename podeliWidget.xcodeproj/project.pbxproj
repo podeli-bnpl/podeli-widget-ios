@@ -11,6 +11,21 @@
 		B524B22D2922843D00CA0662 /* podeliWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B524B2222922843D00CA0662 /* podeliWidget.framework */; };
 		B524B2322922843D00CA0662 /* podeliWidgetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524B2312922843D00CA0662 /* podeliWidgetTests.swift */; };
 		B524B2332922843D00CA0662 /* podeliWidget.h in Headers */ = {isa = PBXBuildFile; fileRef = B524B2252922843D00CA0662 /* podeliWidget.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B524B2432922846B00CA0662 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524B2422922846B00CA0662 /* AppDelegate.swift */; };
+		B524B2452922846B00CA0662 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524B2442922846B00CA0662 /* SceneDelegate.swift */; };
+		B524B2472922846B00CA0662 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524B2462922846B00CA0662 /* ViewController.swift */; };
+		B524B24A2922846B00CA0662 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B524B2482922846B00CA0662 /* Main.storyboard */; };
+		B524B24C2922846C00CA0662 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B524B24B2922846C00CA0662 /* Assets.xcassets */; };
+		B524B24F2922846C00CA0662 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B524B24D2922846C00CA0662 /* LaunchScreen.storyboard */; };
+		B524B271292289B500CA0662 /* PoedliWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524B270292289B500CA0662 /* PoedliWidget.swift */; };
+		B524B2742923ADA000CA0662 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524B2732923ADA000CA0662 /* UIColor+Hex.swift */; };
+		B524B2762923CD8E00CA0662 /* podeliWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B524B2222922843D00CA0662 /* podeliWidget.framework */; };
+		B524B2772923CD8E00CA0662 /* podeliWidget.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B524B2222922843D00CA0662 /* podeliWidget.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B524B27B2923CDAE00CA0662 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524B2462922846B00CA0662 /* ViewController.swift */; };
+		B55D5CC3292672FE0082A4A5 /* Styrene B LC-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B55D5CC2292672CD0082A4A5 /* Styrene B LC-Medium.otf */; };
+		B55D5CC4292672FE0082A4A5 /* Styrene B LC-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B55D5CC2292672CD0082A4A5 /* Styrene B LC-Medium.otf */; };
+		B5ACB13E2924F3F30025E0F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5ACB13D2924F3F30025E0F4 /* Assets.xcassets */; };
+		B5B6D8E22925606E00E51794 /* UIFont+Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B6D8E12925606E00E51794 /* UIFont+Registration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -21,7 +36,28 @@
 			remoteGlobalIDString = B524B2212922843D00CA0662;
 			remoteInfo = podeliWidget;
 		};
+		B524B2782923CD8E00CA0662 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B524B2192922843D00CA0662 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B524B2212922843D00CA0662;
+			remoteInfo = podeliWidget;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B524B27A2923CD8E00CA0662 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B524B2772923CD8E00CA0662 /* podeliWidget.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B524B2222922843D00CA0662 /* podeliWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = podeliWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,6 +65,19 @@
 		B524B2262922843D00CA0662 /* podeliWidget.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = podeliWidget.docc; sourceTree = "<group>"; };
 		B524B22C2922843D00CA0662 /* podeliWidgetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = podeliWidgetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B524B2312922843D00CA0662 /* podeliWidgetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = podeliWidgetTests.swift; sourceTree = "<group>"; };
+		B524B2402922846B00CA0662 /* DemoWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B524B2422922846B00CA0662 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B524B2442922846B00CA0662 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B524B2462922846B00CA0662 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B524B2492922846B00CA0662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B524B24B2922846C00CA0662 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B524B24E2922846C00CA0662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B524B2502922846C00CA0662 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B524B270292289B500CA0662 /* PoedliWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoedliWidget.swift; sourceTree = "<group>"; };
+		B524B2732923ADA000CA0662 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		B55D5CC2292672CD0082A4A5 /* Styrene B LC-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Styrene B LC-Medium.otf"; sourceTree = "<group>"; };
+		B5ACB13D2924F3F30025E0F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B5B6D8E12925606E00E51794 /* UIFont+Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Registration.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +96,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B524B23D2922846B00CA0662 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B524B2762923CD8E00CA0662 /* podeliWidget.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -55,7 +112,9 @@
 			children = (
 				B524B2242922843D00CA0662 /* podeliWidget */,
 				B524B2302922843D00CA0662 /* podeliWidgetTests */,
+				B524B2412922846B00CA0662 /* DemoWidget */,
 				B524B2232922843D00CA0662 /* Products */,
+				B524B2752923CD8E00CA0662 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +123,7 @@
 			children = (
 				B524B2222922843D00CA0662 /* podeliWidget.framework */,
 				B524B22C2922843D00CA0662 /* podeliWidgetTests.xctest */,
+				B524B2402922846B00CA0662 /* DemoWidget.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -71,8 +131,12 @@
 		B524B2242922843D00CA0662 /* podeliWidget */ = {
 			isa = PBXGroup;
 			children = (
+				B55D5CC2292672CD0082A4A5 /* Styrene B LC-Medium.otf */,
+				B5ACB13D2924F3F30025E0F4 /* Assets.xcassets */,
+				B524B2722923AD9000CA0662 /* Extension */,
 				B524B2252922843D00CA0662 /* podeliWidget.h */,
 				B524B2262922843D00CA0662 /* podeliWidget.docc */,
+				B524B270292289B500CA0662 /* PoedliWidget.swift */,
 			);
 			path = podeliWidget;
 			sourceTree = "<group>";
@@ -83,6 +147,36 @@
 				B524B2312922843D00CA0662 /* podeliWidgetTests.swift */,
 			);
 			path = podeliWidgetTests;
+			sourceTree = "<group>";
+		};
+		B524B2412922846B00CA0662 /* DemoWidget */ = {
+			isa = PBXGroup;
+			children = (
+				B524B2422922846B00CA0662 /* AppDelegate.swift */,
+				B524B2442922846B00CA0662 /* SceneDelegate.swift */,
+				B524B2462922846B00CA0662 /* ViewController.swift */,
+				B524B2482922846B00CA0662 /* Main.storyboard */,
+				B524B24B2922846C00CA0662 /* Assets.xcassets */,
+				B524B24D2922846C00CA0662 /* LaunchScreen.storyboard */,
+				B524B2502922846C00CA0662 /* Info.plist */,
+			);
+			path = DemoWidget;
+			sourceTree = "<group>";
+		};
+		B524B2722923AD9000CA0662 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B524B2732923ADA000CA0662 /* UIColor+Hex.swift */,
+				B5B6D8E12925606E00E51794 /* UIFont+Registration.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		B524B2752923CD8E00CA0662 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +229,25 @@
 			productReference = B524B22C2922843D00CA0662 /* podeliWidgetTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		B524B23F2922846B00CA0662 /* DemoWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B524B2672922846C00CA0662 /* Build configuration list for PBXNativeTarget "DemoWidget" */;
+			buildPhases = (
+				B524B23C2922846B00CA0662 /* Sources */,
+				B524B23D2922846B00CA0662 /* Frameworks */,
+				B524B23E2922846B00CA0662 /* Resources */,
+				B524B27A2923CD8E00CA0662 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B524B2792923CD8E00CA0662 /* PBXTargetDependency */,
+			);
+			name = DemoWidget;
+			productName = DemoWidget;
+			productReference = B524B2402922846B00CA0662 /* DemoWidget.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -149,6 +262,9 @@
 						CreatedOnToolsVersion = 14.1;
 					};
 					B524B22B2922843D00CA0662 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					B524B23F2922846B00CA0662 = {
 						CreatedOnToolsVersion = 14.1;
 					};
 				};
@@ -168,6 +284,7 @@
 			targets = (
 				B524B2212922843D00CA0662 /* podeliWidget */,
 				B524B22B2922843D00CA0662 /* podeliWidgetTests */,
+				B524B23F2922846B00CA0662 /* DemoWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -177,6 +294,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5ACB13E2924F3F30025E0F4 /* Assets.xcassets in Resources */,
+				B55D5CC3292672FE0082A4A5 /* Styrene B LC-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +306,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B524B23E2922846B00CA0662 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B524B24F2922846C00CA0662 /* LaunchScreen.storyboard in Resources */,
+				B524B24C2922846C00CA0662 /* Assets.xcassets in Resources */,
+				B524B24A2922846B00CA0662 /* Main.storyboard in Resources */,
+				B55D5CC4292672FE0082A4A5 /* Styrene B LC-Medium.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -194,6 +324,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B524B2742923ADA000CA0662 /* UIColor+Hex.swift in Sources */,
+				B5B6D8E22925606E00E51794 /* UIFont+Registration.swift in Sources */,
+				B524B271292289B500CA0662 /* PoedliWidget.swift in Sources */,
+				B524B27B2923CDAE00CA0662 /* ViewController.swift in Sources */,
 				B524B2272922843D00CA0662 /* podeliWidget.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,6 +340,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B524B23C2922846B00CA0662 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B524B2472922846B00CA0662 /* ViewController.swift in Sources */,
+				B524B2432922846B00CA0662 /* AppDelegate.swift in Sources */,
+				B524B2452922846B00CA0662 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -214,7 +358,31 @@
 			target = B524B2212922843D00CA0662 /* podeliWidget */;
 			targetProxy = B524B22E2922843D00CA0662 /* PBXContainerItemProxy */;
 		};
+		B524B2792923CD8E00CA0662 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B524B2212922843D00CA0662 /* podeliWidget */;
+			targetProxy = B524B2782923CD8E00CA0662 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B524B2482922846B00CA0662 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B524B2492922846B00CA0662 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B524B24D2922846C00CA0662 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B524B24E2922846C00CA0662 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B524B2342922843D00CA0662 /* Debug */ = {
@@ -396,6 +564,7 @@
 		B524B23A2922843D00CA0662 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5HS4749YZC;
@@ -412,6 +581,7 @@
 		B524B23B2922843D00CA0662 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5HS4749YZC;
@@ -420,6 +590,62 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.podeli.podeliWidgetTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B524B2682922846C00CA0662 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5HS4749YZC;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DemoWidget/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.podeli.DemoWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B524B2692922846C00CA0662 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5HS4749YZC;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DemoWidget/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.podeli.DemoWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -451,6 +677,15 @@
 			buildConfigurations = (
 				B524B23A2922843D00CA0662 /* Debug */,
 				B524B23B2922843D00CA0662 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B524B2672922846C00CA0662 /* Build configuration list for PBXNativeTarget "DemoWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B524B2682922846C00CA0662 /* Debug */,
+				B524B2692922846C00CA0662 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
