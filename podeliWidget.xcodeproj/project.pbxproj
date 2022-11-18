@@ -17,7 +17,7 @@
 		B524B24A2922846B00CA0662 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B524B2482922846B00CA0662 /* Main.storyboard */; };
 		B524B24C2922846C00CA0662 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B524B24B2922846C00CA0662 /* Assets.xcassets */; };
 		B524B24F2922846C00CA0662 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B524B24D2922846C00CA0662 /* LaunchScreen.storyboard */; };
-		B524B271292289B500CA0662 /* PoedliWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524B270292289B500CA0662 /* PoedliWidget.swift */; };
+		B524B271292289B500CA0662 /* PodeliWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524B270292289B500CA0662 /* PodeliWidget.swift */; };
 		B524B2742923ADA000CA0662 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524B2732923ADA000CA0662 /* UIColor+Hex.swift */; };
 		B524B2762923CD8E00CA0662 /* podeliWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B524B2222922843D00CA0662 /* podeliWidget.framework */; };
 		B524B2772923CD8E00CA0662 /* podeliWidget.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B524B2222922843D00CA0662 /* podeliWidget.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -73,7 +73,7 @@
 		B524B24B2922846C00CA0662 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B524B24E2922846C00CA0662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B524B2502922846C00CA0662 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B524B270292289B500CA0662 /* PoedliWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoedliWidget.swift; sourceTree = "<group>"; };
+		B524B270292289B500CA0662 /* PodeliWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodeliWidget.swift; sourceTree = "<group>"; };
 		B524B2732923ADA000CA0662 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		B55D5CC2292672CD0082A4A5 /* Styrene B LC-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Styrene B LC-Medium.otf"; sourceTree = "<group>"; };
 		B5ACB13D2924F3F30025E0F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 				B524B2722923AD9000CA0662 /* Extension */,
 				B524B2252922843D00CA0662 /* podeliWidget.h */,
 				B524B2262922843D00CA0662 /* podeliWidget.docc */,
-				B524B270292289B500CA0662 /* PoedliWidget.swift */,
+				B524B270292289B500CA0662 /* PodeliWidget.swift */,
 			);
 			path = podeliWidget;
 			sourceTree = "<group>";
@@ -269,7 +269,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B524B21C2922843D00CA0662 /* Build configuration list for PBXProject "podeliWidget" */;
+			buildConfigurationList = B524B21C2922843D00CA0662 /* Build configuration list for PBXProject "PodeliWidget" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -326,7 +326,7 @@
 			files = (
 				B524B2742923ADA000CA0662 /* UIColor+Hex.swift in Sources */,
 				B5B6D8E22925606E00E51794 /* UIFont+Registration.swift in Sources */,
-				B524B271292289B500CA0662 /* PoedliWidget.swift in Sources */,
+				B524B271292289B500CA0662 /* PodeliWidget.swift in Sources */,
 				B524B27B2923CDAE00CA0662 /* ViewController.swift in Sources */,
 				B524B2272922843D00CA0662 /* podeliWidget.docc in Sources */,
 			);
@@ -654,7 +654,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B524B21C2922843D00CA0662 /* Build configuration list for PBXProject "podeliWidget" */ = {
+		B524B21C2922843D00CA0662 /* Build configuration list for PBXProject "PodeliWidget" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B524B2342922843D00CA0662 /* Debug */,
