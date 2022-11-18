@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public final class PoedliWidgetView: UIView {
+public final class PodeliWidgetView: UIView {
     
     // MARK: - Properties
     
@@ -112,6 +112,7 @@ public final class PoedliWidgetView: UIView {
         guard let addWeekToDate = calendar.date(byAdding: .weekOfYear, value: numberOfWeek, to: Date()) else { return Date()}
         return addWeekToDate
     }
+    
     func setupView() {
         containerView.addSubview(totalPriceLabel)
         containerView.addSubview(logoImageView)
@@ -192,7 +193,7 @@ public final class PoedliWidgetView: UIView {
             fourthStack.heightAnchor.constraint(equalToConstant: Constants.stackViewHeight),
             fourthStack.widthAnchor.constraint(equalToConstant: Constants.stackViewWidth)
         ]
-        
+
         NSLayoutConstraint.activate(constraints)
         
     }
