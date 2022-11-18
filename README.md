@@ -18,9 +18,10 @@ import PodeliWidget
 ```swift
 let widget = PodeliWidgetView()
 widget.configureWith(price: 3000)
-)
 ```
 
+## Пример
+Пример находится в проекте, в таргете DemoWidget
 
 ## Команда разработки
 
