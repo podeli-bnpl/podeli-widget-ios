@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         //Метод для подгрузки и разбиения цены
+//        widgetView.configureWithPercents()
         widgetView.configureWith(price: 3000)
         
         widgetView.layer.masksToBounds = true

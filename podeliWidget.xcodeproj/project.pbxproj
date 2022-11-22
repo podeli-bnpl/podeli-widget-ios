@@ -110,7 +110,7 @@
 		B524B2182922843D00CA0662 = {
 			isa = PBXGroup;
 			children = (
-				B524B2242922843D00CA0662 /* podeliWidget */,
+				B524B2242922843D00CA0662 /* PodeliWidget */,
 				B524B2302922843D00CA0662 /* podeliWidgetTests */,
 				B524B2412922846B00CA0662 /* DemoWidget */,
 				B524B2232922843D00CA0662 /* Products */,
@@ -128,7 +128,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B524B2242922843D00CA0662 /* podeliWidget */ = {
+		B524B2242922843D00CA0662 /* PodeliWidget */ = {
 			isa = PBXGroup;
 			children = (
 				B55D5CC2292672CD0082A4A5 /* Styrene B LC-Medium.otf */,
@@ -138,7 +138,7 @@
 				B524B2262922843D00CA0662 /* podeliWidget.docc */,
 				B524B270292289B500CA0662 /* PodeliWidget.swift */,
 			);
-			path = podeliWidget;
+			path = PodeliWidget;
 			sourceTree = "<group>";
 		};
 		B524B2302922843D00CA0662 /* podeliWidgetTests */ = {

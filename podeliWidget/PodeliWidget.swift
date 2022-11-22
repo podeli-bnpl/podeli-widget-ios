@@ -18,9 +18,8 @@ public final class PodeliWidgetView: UIView {
         static let separatorHeight: CGFloat = 3
         static let stackViewHeight: CGFloat = 38
         static let stackViewWidth: CGFloat = 74
-
     }
-
+    
     private var containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -37,12 +36,12 @@ public final class PodeliWidgetView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     private var firstDateLabel = UILabel()
     private var secondDateLabel = UILabel()
     private var thirdDateLabel = UILabel()
     private var fourthDateLabel = UILabel()
-
+    
     private var firstPriceLabel = UILabel()
     private var secondPriceLabel = UILabel()
     private var thirdPriceLabel = UILabel()
@@ -52,6 +51,7 @@ public final class PodeliWidgetView: UIView {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
         view.clipsToBounds = true
+        view.image = UIImage(named: "podeliLogoLight.png")
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -69,6 +69,14 @@ public final class PodeliWidgetView: UIView {
         setupView()
     }
     
+    public func configureWithPercents() {
+        totalPriceLabel.text = "100%"
+        firstPriceLabel.text = "25%"
+        secondPriceLabel.text = "25%"
+        thirdPriceLabel.text = "25%"
+        fourthPriceLabel.text = "25%"
+        configureLabelsWithDate()
+    }
     public func configureWith(price: Double) {
         configureLabelsWith(price: price)
         configureLabelsWithDate()
@@ -83,7 +91,7 @@ public final class PodeliWidgetView: UIView {
         let part = price / 4
         let partPrice = formatter.string(from: part as NSNumber) ?? ""
         let fullPrice = formatter.string(from: price as NSNumber) ?? ""
-
+        
         totalPriceLabel.text = "\(fullPrice) ₽"
         firstPriceLabel.text = "\(partPrice) ₽"
         secondPriceLabel.text = "\(partPrice) ₽"
@@ -95,13 +103,12 @@ public final class PodeliWidgetView: UIView {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMMM"
         dateFormatter.locale = Locale(identifier: "ru_RU")
-
+        
         let secondDate = dateFormatter.string(from: addWeeksToDate(numberOfWeek: 2))
         let thirdDate = dateFormatter.string(from: addWeeksToDate(numberOfWeek: 4))
         let fourthDate = dateFormatter.string(from: addWeeksToDate(numberOfWeek: 6))
         
         firstDateLabel.text = "Cегодня"
-
         secondDateLabel.text = "\(secondDate)"
         thirdDateLabel.text = "\(thirdDate)"
         fourthDateLabel.text = "\(fourthDate)"
@@ -117,16 +124,16 @@ public final class PodeliWidgetView: UIView {
         containerView.addSubview(totalPriceLabel)
         containerView.addSubview(logoImageView)
         addFrameEqualitySubview(containerView)
-
+        
         let firstSeparator = prepareSeparator()
         let secondSeparator = prepareSeparator()
         let thirdSeparator = prepareSeparator()
         let fourthSeparator = prepareSeparator()
         
-        logoImageView.image = UIImage(named: "podeliLogo.png")
+        let bundle = Bundle(for: PodeliWidgetView.self)
         
         firstSeparator.backgroundColor = UIColor(hexString: "EE3124")
-
+        
         let firstStack = UIStackView(arrangedSubviews: [firstSeparator, firstDateLabel, firstPriceLabel])
         let secondStack = UIStackView(arrangedSubviews: [secondSeparator, secondDateLabel, secondPriceLabel])
         let thirdStack = UIStackView(arrangedSubviews: [thirdSeparator, thirdDateLabel, thirdPriceLabel])
@@ -141,6 +148,9 @@ public final class PodeliWidgetView: UIView {
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.font = UIFont(name: "Styrene B LC", size: 11)
             $0.textColor = UIColor(hexString: "323232")
+            if #available(iOS 13.0, *) {
+                $0.textColor = UITraitCollection.current.userInterfaceStyle == .dark ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) : #colorLiteral(red: 0.1960784314, green: 0.1960784314, blue: 0.1960784314, alpha: 1)
+            }
         }
         
         let stackMain = UIStackView(arrangedSubviews: [firstStack, secondStack, thirdStack, fourthStack])
@@ -149,15 +159,24 @@ public final class PodeliWidgetView: UIView {
         stackMain.axis = .horizontal
         
         containerView.addSubview(stackMain)
-
+        
         [firstStack, secondStack, thirdStack, fourthStack].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.distribution = .equalSpacing
             $0.axis = .vertical
             $0.spacing = 6
         }
+        
         totalPriceLabel.font = UIFont(name: "Styrene B LC", size: 16)
-
+        
+        if #available(iOS 13.0, *) {
+            totalPriceLabel.textColor = UITraitCollection.current.userInterfaceStyle == .dark ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) : #colorLiteral(red: 0.1960784314, green: 0.1960784314, blue: 0.1960784314, alpha: 1)
+            containerView.layer.borderColor = UITraitCollection.current.userInterfaceStyle == .dark ? #colorLiteral(red: 0.3843137255, green: 0.3843137255, blue: 0.3843137255, alpha: 1) : #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
+            containerView.backgroundColor = UITraitCollection.current.userInterfaceStyle == .dark ? #colorLiteral(red: 0.2651473284, green: 0.2651473284, blue: 0.2651473284, alpha: 1) : #colorLiteral(red: 1.00000000000, green: 1.00000000000, blue: 1.00000000000, alpha: 1)
+            let name = UITraitCollection.current.userInterfaceStyle == .dark ? "podeliLogoDark.png": "podeliLogoLight.png"
+            logoImageView.image = UIImage(named: name, in: bundle, with: nil)
+        }
+        
         let constraints = [
             containerView.heightAnchor.constraint(equalToConstant: 80),
             
@@ -180,10 +199,10 @@ public final class PodeliWidgetView: UIView {
             fourthSeparator.heightAnchor.constraint(equalToConstant: 3),
             
             stackMain.topAnchor.constraint(equalTo: totalPriceLabel.bottomAnchor, constant: 7),
-            stackMain.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 16),
-            stackMain.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -16),
+            stackMain.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: Constants.leftInset),
+            stackMain.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -Constants.rightInset),
             stackMain.heightAnchor.constraint(equalToConstant: Constants.stackViewHeight),
-
+            
             firstStack.heightAnchor.constraint(equalToConstant: Constants.stackViewHeight),
             firstStack.widthAnchor.constraint(equalToConstant: Constants.stackViewWidth),
             secondStack.heightAnchor.constraint(equalToConstant: Constants.stackViewHeight),
@@ -193,7 +212,7 @@ public final class PodeliWidgetView: UIView {
             fourthStack.heightAnchor.constraint(equalToConstant: Constants.stackViewHeight),
             fourthStack.widthAnchor.constraint(equalToConstant: Constants.stackViewWidth)
         ]
-
+        
         NSLayoutConstraint.activate(constraints)
         
     }
@@ -201,6 +220,9 @@ public final class PodeliWidgetView: UIView {
     func prepareSeparator() -> UIView {
         let view = UIView()
         view.backgroundColor = UIColor(hexString: "D9D9D9")
+        if #available(iOS 13.0, *) {
+            view.backgroundColor = UITraitCollection.current.userInterfaceStyle == .dark ? #colorLiteral(red: 0.3843137255, green: 0.3843137255, blue: 0.3843137255, alpha: 1) : #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
+        }
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 2
         return view
@@ -214,7 +236,6 @@ extension UIView {
             rightAnchor.constraint(equalTo: view.rightAnchor, constant: margins.right),
             topAnchor.constraint(equalTo: view.topAnchor, constant: margins.top),
             bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: margins.top)
-            
         ]
         
         NSLayoutConstraint.activate(constraints)
