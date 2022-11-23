@@ -131,7 +131,7 @@
 		B524B2242922843D00CA0662 /* PodeliWidget */ = {
 			isa = PBXGroup;
 			children = (
-				B55D5CC2292672CD0082A4A5 /* Styrene B LC-Medium.otf */,
+				B5901E88292E4EDE002B67D5 /* Fonts */,
 				B5ACB13D2924F3F30025E0F4 /* Assets.xcassets */,
 				B524B2722923AD9000CA0662 /* Extension */,
 				B524B2252922843D00CA0662 /* podeliWidget.h */,
@@ -177,6 +177,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B5901E88292E4EDE002B67D5 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B55D5CC2292672CD0082A4A5 /* Styrene B LC-Medium.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
