@@ -178,7 +178,6 @@ public final class PodeliWidgetView: UIView {
         }
         
         let constraints = [
-            containerView.heightAnchor.constraint(equalToConstant: 80),
             
             totalPriceLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: Constants.leftInset),
             totalPriceLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 13),
@@ -202,6 +201,7 @@ public final class PodeliWidgetView: UIView {
             stackMain.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: Constants.leftInset),
             stackMain.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -Constants.rightInset),
             stackMain.heightAnchor.constraint(equalToConstant: Constants.stackViewHeight),
+            stackMain.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8),
             
             firstStack.heightAnchor.constraint(equalToConstant: Constants.stackViewHeight),
             firstStack.widthAnchor.constraint(equalToConstant: Constants.stackViewWidth),
