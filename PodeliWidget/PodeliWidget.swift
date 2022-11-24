@@ -88,15 +88,18 @@ public final class PodeliWidgetView: UIView {
         formatter.minimumFractionDigits = 0
         formatter.maximumFractionDigits = 2
         
-        let part = price / 4
+        let part = (price / 4).rounded(.up)
+        let fouthPart = price - part * 3
+
         let partPrice = formatter.string(from: part as NSNumber) ?? ""
         let fullPrice = formatter.string(from: price as NSNumber) ?? ""
-        
+        let lastPrice = formatter.string(from: fouthPart as NSNumber) ?? ""
+
         totalPriceLabel.text = "\(fullPrice) ₽"
         firstPriceLabel.text = "\(partPrice) ₽"
         secondPriceLabel.text = "\(partPrice) ₽"
         thirdPriceLabel.text = "\(partPrice) ₽"
-        fourthPriceLabel.text = "\(partPrice) ₽"
+        fourthPriceLabel.text = "\(lastPrice) ₽"
     }
     
     func configureLabelsWithDate() {
@@ -164,7 +167,6 @@ public final class PodeliWidgetView: UIView {
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.distribution = .equalSpacing
             $0.axis = .vertical
-            $0.spacing = 6
         }
         
         totalPriceLabel.font = UIFont(name: "Styrene B LC", size: 16)
@@ -178,6 +180,7 @@ public final class PodeliWidgetView: UIView {
         }
         
         let constraints = [
+            self.heightAnchor.constraint(equalToConstant: 80),
             
             totalPriceLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: Constants.leftInset),
             totalPriceLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 13),

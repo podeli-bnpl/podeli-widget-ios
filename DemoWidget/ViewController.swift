@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         //Метод для подгрузки и разбиения цены
-        widgetView.configureWithPercents()
+        widgetView.configureWith(price: 3000)
         
         widgetView.layer.masksToBounds = true
         widgetView.translatesAutoresizingMaskIntoConstraints = false
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
             textField.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 200)
         ])
     }
-    
+
     @objc func order() {
         guard let price = Double(textField.text!) else { return  }
         widgetView.configureWith(price: price)
