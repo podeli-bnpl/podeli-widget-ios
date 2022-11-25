@@ -4,7 +4,7 @@
 
 Для установки необходимо к основному таргету приложения добавить Pod:
 ```ruby
-pod 'PodeliWidget', :git => 'https://github.com/podeli-bnpl/podeli-widget-ios.git', :tag => '0.0.5'
+pod 'PodeliWidget', :git => 'https://github.com/podeli-bnpl/podeli-widget-ios.git', :tag => '0.0.6'
 ```
 
 ## Использование
