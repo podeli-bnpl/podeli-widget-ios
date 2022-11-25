@@ -144,12 +144,12 @@ public final class PodeliWidgetView: UIView {
         
         [firstDateLabel, secondDateLabel, thirdDateLabel, fourthDateLabel].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.font = UIFont(name: "Styrene B LC", size: 10)
+            $0.font = UIFont(name: "StyreneBLC-Medium", size: 10)
             $0.textColor = UIColor(hexString: "AEAEAE")
         }
         [firstPriceLabel, secondPriceLabel, thirdPriceLabel, fourthPriceLabel].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.font = UIFont(name: "Styrene B LC", size: 11)
+            $0.font = UIFont(name: "StyreneBLC-Medium", size: 11)
             $0.textColor = UIColor(hexString: "323232")
             if #available(iOS 13.0, *) {
                 $0.textColor = UITraitCollection.current.userInterfaceStyle == .dark ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) : #colorLiteral(red: 0.1960784314, green: 0.1960784314, blue: 0.1960784314, alpha: 1)
@@ -182,7 +182,7 @@ public final class PodeliWidgetView: UIView {
             $0.axis = .vertical
         }
         
-        totalPriceLabel.font = UIFont(name: "Styrene B LC", size: 16)
+        totalPriceLabel.font = UIFont(name: "StyreneBLC-Medium", size: 16)
         
         if #available(iOS 13.0, *) {
             totalPriceLabel.textColor = UITraitCollection.current.userInterfaceStyle == .dark ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) : #colorLiteral(red: 0.1960784314, green: 0.1960784314, blue: 0.1960784314, alpha: 1)
