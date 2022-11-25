@@ -19,6 +19,11 @@ public final class PodeliWidgetView: UIView {
         static let stackViewHeight: CGFloat = 38
         static let stackViewWidth: CGFloat = 74
     }
+ 
+    private var firstSeparator = UIView()
+    private var secondSeparator = UIView()
+    private var thirdSeparator = UIView()
+    private var fourthSeparator = UIView()
     
     private var containerView: UIView = {
         let view = UIView()
@@ -127,15 +132,10 @@ public final class PodeliWidgetView: UIView {
         containerView.addSubview(totalPriceLabel)
         containerView.addSubview(logoImageView)
         addFrameEqualitySubview(containerView)
-        
-        let firstSeparator = prepareSeparator()
-        let secondSeparator = prepareSeparator()
-        let thirdSeparator = prepareSeparator()
-        let fourthSeparator = prepareSeparator()
+
         
         let bundle = Bundle(for: PodeliWidgetView.self)
         
-        firstSeparator.backgroundColor = UIColor(hexString: "EE3124")
         
         let firstStack = UIStackView(arrangedSubviews: [firstSeparator, firstDateLabel, firstPriceLabel])
         let secondStack = UIStackView(arrangedSubviews: [secondSeparator, secondDateLabel, secondPriceLabel])
@@ -155,6 +155,19 @@ public final class PodeliWidgetView: UIView {
                 $0.textColor = UITraitCollection.current.userInterfaceStyle == .dark ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) : #colorLiteral(red: 0.1960784314, green: 0.1960784314, blue: 0.1960784314, alpha: 1)
             }
         }
+        
+        
+        [firstSeparator, secondSeparator, thirdSeparator, fourthSeparator].forEach {
+            $0.backgroundColor = UIColor(hexString: "D9D9D9")
+            if #available(iOS 13.0, *) {
+                $0.backgroundColor = UITraitCollection.current.userInterfaceStyle == .dark ? #colorLiteral(red: 0.3843137255, green: 0.3843137255, blue: 0.3843137255, alpha: 1) : #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
+            }
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.clipsToBounds = true
+            $0.layer.cornerRadius = 2
+        }
+        
+        firstSeparator.backgroundColor = UIColor(hexString: "EE3124")
         
         let stackMain = UIStackView(arrangedSubviews: [firstStack, secondStack, thirdStack, fourthStack])
         stackMain.translatesAutoresizingMaskIntoConstraints = false
@@ -220,15 +233,10 @@ public final class PodeliWidgetView: UIView {
         
     }
     
-    func prepareSeparator() -> UIView {
-        let view = UIView()
-        view.backgroundColor = UIColor(hexString: "D9D9D9")
-        if #available(iOS 13.0, *) {
-            view.backgroundColor = UITraitCollection.current.userInterfaceStyle == .dark ? #colorLiteral(red: 0.3843137255, green: 0.3843137255, blue: 0.3843137255, alpha: 1) : #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
-        }
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 2
-        return view
+    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        setupView()
+        self.layoutIfNeeded()
     }
 }
 
