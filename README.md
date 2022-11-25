@@ -14,6 +14,12 @@ pod 'PodeliWidget', :git => 'https://github.com/podeli-bnpl/podeli-widget-ios.gi
 import PodeliWidget
 
 ```
+Загрузка шрифтов
+
+Для того чтобы подгрузить шрифт
+```swift
+UIFont.loadFonts() - в AppDelegate, например
+```
 Далее настроить виджет 
 ```swift
 let widget = PodeliWidgetView()
