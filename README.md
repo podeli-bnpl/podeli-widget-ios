@@ -4,7 +4,7 @@
 
 Для установки необходимо к основному таргету приложения добавить Pod:
 ```ruby
-pod 'PodeliWidget', :git => 'https://github.com/podeli-bnpl/podeli-widget-ios.git', :tag => '0.0.6'
+pod 'PodeliWidget', :git => 'https://github.com/podeli-bnpl/podeli-widget-ios.git', :tag => '0.0.7'
 ```
 
 ## Использование
@@ -23,7 +23,8 @@ UIFont.loadFonts() - в AppDelegate, например
 Далее настроить виджет 
 ```swift
 let widget = PodeliWidgetView()
-widget.configureWith(price: 3000)
+widget.configure() - по умолчанию устанавливаются проценты
+widget.configure(with: 3000) - устанавливает определенную стоимость
 ```
 
 ## Пример

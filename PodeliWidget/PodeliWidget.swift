@@ -65,12 +65,14 @@ public final class PodeliWidgetView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configureWithPercents()
         setupView()
         
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        configureWithPercents()
         setupView()
     }
     
@@ -81,10 +83,15 @@ public final class PodeliWidgetView: UIView {
         thirdPriceLabel.text = "25%"
         fourthPriceLabel.text = "25%"
         configureLabelsWithDate()
+
     }
-    public func configureWith(price: Double) {
-        configureLabelsWith(price: price)
+    public func configure(with price: Double? = nil) {
         configureLabelsWithDate()
+        guard let price = price else {
+            configureWithPercents()
+            return
+        }
+        configureLabelsWith(price: price)
     }
     
     func configureLabelsWith(price: Double) {
@@ -129,6 +136,7 @@ public final class PodeliWidgetView: UIView {
     }
     
     func setupView() {
+        UIFont.loadFonts()
         containerView.addSubview(totalPriceLabel)
         containerView.addSubview(logoImageView)
         addFrameEqualitySubview(containerView)
@@ -173,6 +181,7 @@ public final class PodeliWidgetView: UIView {
         stackMain.translatesAutoresizingMaskIntoConstraints = false
         stackMain.distribution = .equalSpacing
         stackMain.axis = .horizontal
+        stackMain.spacing = 5
         
         containerView.addSubview(stackMain)
         
