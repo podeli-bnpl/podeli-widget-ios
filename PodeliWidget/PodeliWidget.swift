@@ -76,7 +76,7 @@ public final class PodeliWidgetView: UIView {
         setupView()
     }
     
-    public func configureWithPercents() {
+    func configureWithPercents() {
         totalPriceLabel.text = "100%"
         firstPriceLabel.text = "25%"
         secondPriceLabel.text = "25%"
@@ -85,7 +85,8 @@ public final class PodeliWidgetView: UIView {
         configureLabelsWithDate()
 
     }
-    public func configure(with price: Double? = nil) {
+    
+    public func configure(with price: Double?) {
         configureLabelsWithDate()
         guard let price = price else {
             configureWithPercents()
