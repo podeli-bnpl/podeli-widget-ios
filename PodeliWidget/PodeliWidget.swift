@@ -100,13 +100,22 @@ public final class PodeliWidgetView: UIView {
         let formatter = NumberFormatter()
         formatter.minimumFractionDigits = 0
         formatter.maximumFractionDigits = 2
+        formatter.roundingMode = .up
         
-        let part = (price / 4).rounded(.up)
-        let fouthPart = price - part * 3
-
+        let part = (price / 4)
+        
         let partPrice = formatter.string(from: part as NSNumber) ?? ""
         let fullPrice = formatter.string(from: price as NSNumber) ?? ""
-        let lastPrice = formatter.string(from: fouthPart as NSNumber) ?? ""
+        
+        guard let roundedPart = Double(partPrice) else { return }
+     
+        let fouthPart = price - roundedPart * 3
+        
+        let lastPriceFormatter = NumberFormatter()
+        lastPriceFormatter.minimumFractionDigits = 0
+        lastPriceFormatter.maximumFractionDigits = 2
+        
+        let lastPrice = lastPriceFormatter.string(from: fouthPart as NSNumber) ?? ""
 
         totalPriceLabel.text = "\(fullPrice) ₽"
         firstPriceLabel.text = "\(partPrice) ₽"
