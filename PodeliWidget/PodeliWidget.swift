@@ -116,7 +116,7 @@ public final class PodeliWidgetView: UIView {
         lastPriceFormatter.maximumFractionDigits = 2
         
         let lastPrice = lastPriceFormatter.string(from: fouthPart as NSNumber) ?? ""
-
+        
         totalPriceLabel.text = "\(fullPrice) ₽"
         firstPriceLabel.text = "\(partPrice) ₽"
         secondPriceLabel.text = "\(partPrice) ₽"
@@ -203,6 +203,12 @@ public final class PodeliWidgetView: UIView {
         
         totalPriceLabel.font = UIFont(name: "StyreneBLC-Medium", size: 16)
         
+        var separatorWidth: CGFloat = Constants.stackViewWidth
+        let screenWidth: CGFloat = UIScreen.main.bounds.size.width
+        
+        if screenWidth <= 320  {
+            separatorWidth = 60
+        }
         if #available(iOS 13.0, *) {
             totalPriceLabel.textColor = UITraitCollection.current.userInterfaceStyle == .dark ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) : #colorLiteral(red: 0.1960784314, green: 0.1960784314, blue: 0.1960784314, alpha: 1)
             containerView.layer.borderColor = UITraitCollection.current.userInterfaceStyle == .dark ? #colorLiteral(red: 0.3843137255, green: 0.3843137255, blue: 0.3843137255, alpha: 1) : #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
@@ -223,13 +229,13 @@ public final class PodeliWidgetView: UIView {
             logoImageView.heightAnchor.constraint(equalToConstant: 13),
             logoImageView.widthAnchor.constraint(equalToConstant: 80),
             
-            firstSeparator.widthAnchor.constraint(equalToConstant: 74),
+            firstSeparator.widthAnchor.constraint(equalToConstant: separatorWidth),
             firstSeparator.heightAnchor.constraint(equalToConstant: 3),
-            secondSeparator.widthAnchor.constraint(equalToConstant: 74),
+            secondSeparator.widthAnchor.constraint(equalToConstant: separatorWidth),
             secondSeparator.heightAnchor.constraint(equalToConstant: 3),
-            thirdSeparator.widthAnchor.constraint(equalToConstant: 74),
+            thirdSeparator.widthAnchor.constraint(equalToConstant: separatorWidth),
             thirdSeparator.heightAnchor.constraint(equalToConstant: 3),
-            fourthSeparator.widthAnchor.constraint(equalToConstant: 74),
+            fourthSeparator.widthAnchor.constraint(equalToConstant: separatorWidth),
             fourthSeparator.heightAnchor.constraint(equalToConstant: 3),
             
             stackMain.topAnchor.constraint(equalTo: totalPriceLabel.bottomAnchor, constant: 7),
@@ -239,13 +245,13 @@ public final class PodeliWidgetView: UIView {
             stackMain.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8),
             
             firstStack.heightAnchor.constraint(equalToConstant: Constants.stackViewHeight),
-            firstStack.widthAnchor.constraint(equalToConstant: Constants.stackViewWidth),
+            firstStack.widthAnchor.constraint(equalToConstant: separatorWidth),
             secondStack.heightAnchor.constraint(equalToConstant: Constants.stackViewHeight),
-            secondStack.widthAnchor.constraint(equalToConstant: Constants.stackViewWidth),
+            secondStack.widthAnchor.constraint(equalToConstant:separatorWidth),
             thirdStack.heightAnchor.constraint(equalToConstant: Constants.stackViewHeight),
-            thirdStack.widthAnchor.constraint(equalToConstant: Constants.stackViewWidth),
+            thirdStack.widthAnchor.constraint(equalToConstant: separatorWidth),
             fourthStack.heightAnchor.constraint(equalToConstant: Constants.stackViewHeight),
-            fourthStack.widthAnchor.constraint(equalToConstant: Constants.stackViewWidth)
+            fourthStack.widthAnchor.constraint(equalToConstant: separatorWidth)
         ]
         
         NSLayoutConstraint.activate(constraints)
