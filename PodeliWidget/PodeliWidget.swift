@@ -101,7 +101,7 @@ public final class PodeliWidgetView: UIView {
         formatter.minimumFractionDigits = 0
         formatter.maximumFractionDigits = 2
         formatter.roundingMode = .up
-        
+        formatter.decimalSeparator = "."
         let part = (price / 4)
         
         let partPrice = formatter.string(from: part as NSNumber) ?? ""
