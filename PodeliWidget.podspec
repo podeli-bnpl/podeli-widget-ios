@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "PodeliWidget"
-  spec.version      = "0.0.11"
+  spec.version      = "0.0.12"
   spec.summary      = "PodeliWidget framework"
   
 

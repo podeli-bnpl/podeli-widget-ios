@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+public protocol PodeliWidgetDelegate: AnyObject {
+    func showInfoService()
+}
+
 public final class PodeliWidgetView: UIView {
     
     // MARK: - Properties
@@ -19,6 +23,9 @@ public final class PodeliWidgetView: UIView {
         static let stackViewHeight: CGFloat = 38
         static let stackViewWidth: CGFloat = 74
     }
+    
+    public var delegate: PodeliWidgetDelegate?
+
  
     private var firstSeparator = UIView()
     private var secondSeparator = UIView()
@@ -52,11 +59,24 @@ public final class PodeliWidgetView: UIView {
     private var thirdPriceLabel = UILabel()
     private var fourthPriceLabel = UILabel()
     
+    private var serviceInfoLabel = UILabel()
+
+    
     private var logoImageView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
         view.clipsToBounds = true
         view.image = UIImage(named: "podeliLogoLight.png")
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    
+    private var serviceInfoImageView: UIImageView = {
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFit
+        view.clipsToBounds = true
+        view.image = UIImage(named: "infoLight.png")
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -122,6 +142,8 @@ public final class PodeliWidgetView: UIView {
         secondPriceLabel.text = "\(partPrice) ₽"
         thirdPriceLabel.text = "\(partPrice) ₽"
         fourthPriceLabel.text = "\(lastPrice) ₽"
+        
+        serviceInfoLabel.text = "Подробные условия"
     }
     
     func configureLabelsWithDate() {
@@ -149,6 +171,8 @@ public final class PodeliWidgetView: UIView {
         UIFont.loadFonts()
         containerView.addSubview(totalPriceLabel)
         containerView.addSubview(logoImageView)
+        containerView.addSubview(serviceInfoLabel)
+        containerView.addSubview(serviceInfoImageView)
         addFrameEqualitySubview(containerView)
 
         
@@ -174,6 +198,13 @@ public final class PodeliWidgetView: UIView {
             }
         }
         
+        serviceInfoLabel.font = UIFont(name: "StyreneBLC-Medium", size: 11)
+        serviceInfoLabel.textColor = UIColor(hexString: "323232")
+        serviceInfoLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        let infoGesture = UITapGestureRecognizer(target: self, action: #selector(showServiceInfo))
+          serviceInfoLabel.isUserInteractionEnabled = true
+          serviceInfoLabel.addGestureRecognizer(infoGesture)
         
         [firstSeparator, secondSeparator, thirdSeparator, fourthSeparator].forEach {
             $0.backgroundColor = UIColor(hexString: "D9D9D9")
@@ -213,12 +244,20 @@ public final class PodeliWidgetView: UIView {
             totalPriceLabel.textColor = UITraitCollection.current.userInterfaceStyle == .dark ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) : #colorLiteral(red: 0.1960784314, green: 0.1960784314, blue: 0.1960784314, alpha: 1)
             containerView.layer.borderColor = UITraitCollection.current.userInterfaceStyle == .dark ? #colorLiteral(red: 0.3843137255, green: 0.3843137255, blue: 0.3843137255, alpha: 1) : #colorLiteral(red: 0.8509803922, green: 0.8509803922, blue: 0.8509803922, alpha: 1)
             containerView.backgroundColor = UITraitCollection.current.userInterfaceStyle == .dark ? #colorLiteral(red: 0.2651473284, green: 0.2651473284, blue: 0.2651473284, alpha: 1) : #colorLiteral(red: 1.00000000000, green: 1.00000000000, blue: 1.00000000000, alpha: 1)
-            let name = UITraitCollection.current.userInterfaceStyle == .dark ? "podeliLogoDark.png": "podeliLogoLight.png"
-            logoImageView.image = UIImage(named: name, in: bundle, with: nil)
+            serviceInfoLabel.textColor = UITraitCollection.current.userInterfaceStyle == .dark ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) : #colorLiteral(red: 0.1960784314, green: 0.1960784314, blue: 0.1960784314, alpha: 1)
+            let podeliLogo = UITraitCollection.current.userInterfaceStyle == .dark ? "podeliLogoDark.png": "podeliLogoLight.png"
+            let infoLogo = UITraitCollection.current.userInterfaceStyle == .dark ? "infoDark.png": "infoLight.png"
+            logoImageView.image = UIImage(named: podeliLogo, in: bundle, with: nil)
+            serviceInfoImageView.image = UIImage(named: infoLogo, in: bundle, with: nil)
         }
         
         let constraints = [
-            self.heightAnchor.constraint(equalToConstant: 80),
+            self.heightAnchor.constraint(equalToConstant: 102),
+            
+            serviceInfoLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: Constants.leftInset),
+            serviceInfoLabel.topAnchor.constraint(equalTo: stackMain.bottomAnchor, constant: 5),
+            serviceInfoLabel.heightAnchor.constraint(equalToConstant: 11),
+            
             
             totalPriceLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: Constants.leftInset),
             totalPriceLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 13),
@@ -228,6 +267,13 @@ public final class PodeliWidgetView: UIView {
             logoImageView.topAnchor.constraint(equalTo: totalPriceLabel.topAnchor, constant: 0),
             logoImageView.heightAnchor.constraint(equalToConstant: 13),
             logoImageView.widthAnchor.constraint(equalToConstant: 80),
+            
+            
+            serviceInfoImageView.leftAnchor.constraint(equalTo: serviceInfoLabel.rightAnchor, constant: 4),
+            serviceInfoImageView.topAnchor.constraint(equalTo: serviceInfoLabel.topAnchor),
+            serviceInfoImageView.heightAnchor.constraint(equalToConstant: 11),
+            serviceInfoImageView.widthAnchor.constraint(equalToConstant: 11),
+//            serviceInfoImageView.centerYAnchor.constraint(equalTo: serviceInfoLabel.centerYAnchor),
             
             firstSeparator.widthAnchor.constraint(equalToConstant: separatorWidth),
             firstSeparator.heightAnchor.constraint(equalToConstant: 3),
@@ -242,7 +288,6 @@ public final class PodeliWidgetView: UIView {
             stackMain.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: Constants.leftInset),
             stackMain.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -Constants.rightInset),
             stackMain.heightAnchor.constraint(equalToConstant: Constants.stackViewHeight),
-            stackMain.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8),
             
             firstStack.heightAnchor.constraint(equalToConstant: Constants.stackViewHeight),
             firstStack.widthAnchor.constraint(equalToConstant: separatorWidth),
@@ -262,6 +307,10 @@ public final class PodeliWidgetView: UIView {
         super.traitCollectionDidChange(previousTraitCollection)
         setupView()
         self.layoutIfNeeded()
+    }
+    
+    @objc func showServiceInfo() {
+        self.delegate?.showInfoService()
     }
 }
 

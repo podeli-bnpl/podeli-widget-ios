@@ -4,7 +4,7 @@
 
 Для установки необходимо к основному таргету приложения добавить Pod:
 ```ruby
-pod 'PodeliWidget', :git => 'https://github.com/podeli-bnpl/podeli-widget-ios.git', :tag => '0.0.11'
+pod 'PodeliWidget', :git => 'https://github.com/podeli-bnpl/podeli-widget-ios.git', :tag => '0.0.12'
 ```
 
 ## Использование
@@ -14,6 +14,11 @@ pod 'PodeliWidget', :git => 'https://github.com/podeli-bnpl/podeli-widget-ios.gi
 import PodeliWidget
 
 ```
+
+
+
+
+
 Загрузка шрифтов
 
 Для того чтобы подгрузить шрифт
@@ -26,6 +31,24 @@ let widget = PodeliWidgetView()
 widget.configure() - по умолчанию устанавливаются проценты
 widget.configure(with: 3000) - устанавливает определенную стоимость
 ```
+Вызов функции по нажатию на "Подробные условия"
+Добавить протокол в родительский класс.
+
+Пример:
+```swift
+ViewController: UIViewController, PodeliWidgetDelegate
+```
+Установить делегат
+```swift
+widgetView.delegate = self
+```
+Вызывать функцию в родительском классе
+```swift
+    func showInfoService() {
+        //Call to service info
+    } 
+```
+
 
 ## Пример
 Пример находится в проекте, в таргете DemoWidget

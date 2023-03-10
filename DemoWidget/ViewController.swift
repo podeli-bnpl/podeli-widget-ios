@@ -8,7 +8,7 @@
 import UIKit
 import podeliWidget
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, PodeliWidgetDelegate {
     
     private let widgetView = PodeliWidgetView()
     private let textField = UITextField()
@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         
         //Метод для подгрузки и разбиения цены
         widgetView.configure(with: 3000)
-        
+        widgetView.delegate = self
         widgetView.layer.masksToBounds = true
         widgetView.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Цена"
@@ -61,6 +61,9 @@ class ViewController: UIViewController {
         widgetView.configure(with: price)
     }
     
+    func showInfoService() {
+        //Call to show webview
+    }    
 }
 
 extension ViewController: UITextFieldDelegate {
