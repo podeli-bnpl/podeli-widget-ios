@@ -24,7 +24,7 @@ public final class PodeliWidgetView: UIView {
         static let stackViewWidth: CGFloat = 74
     }
     
-    public var delegate: PodeliWidgetDelegate?
+    public weak var delegate: PodeliWidgetDelegate?
 
  
     private var firstSeparator = UIView()
