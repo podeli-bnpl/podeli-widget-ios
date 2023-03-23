@@ -25,8 +25,8 @@ public final class PodeliWidgetView: UIView {
     }
     
     public weak var delegate: PodeliWidgetDelegate?
-
- 
+    
+    
     private var firstSeparator = UIView()
     private var secondSeparator = UIView()
     private var thirdSeparator = UIView()
@@ -60,7 +60,7 @@ public final class PodeliWidgetView: UIView {
     private var fourthPriceLabel = UILabel()
     
     private var serviceInfoLabel = UILabel()
-
+    
     
     private var logoImageView: UIImageView = {
         let view = UIImageView()
@@ -79,6 +79,17 @@ public final class PodeliWidgetView: UIView {
         view.image = UIImage(named: "infoLight.png")
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
+    }()
+    
+    
+    private var serviceInfoStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        stackView.spacing = 4
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
     }()
     
     // MARK: - Init
@@ -103,7 +114,7 @@ public final class PodeliWidgetView: UIView {
         thirdPriceLabel.text = "25%"
         fourthPriceLabel.text = "25%"
         configureLabelsWithDate()
-
+        
     }
     
     public func configure(with price: Double?) {
@@ -128,7 +139,7 @@ public final class PodeliWidgetView: UIView {
         let fullPrice = formatter.string(from: price as NSNumber) ?? ""
         
         guard let roundedPart = Double(partPrice) else { return }
-     
+        
         let fouthPart = price - roundedPart * 3
         
         let lastPriceFormatter = NumberFormatter()
@@ -143,7 +154,6 @@ public final class PodeliWidgetView: UIView {
         thirdPriceLabel.text = "\(partPrice) ₽"
         fourthPriceLabel.text = "\(lastPrice) ₽"
         
-        serviceInfoLabel.text = "Подробные условия"
     }
     
     func configureLabelsWithDate() {
@@ -159,6 +169,7 @@ public final class PodeliWidgetView: UIView {
         secondDateLabel.text = "\(secondDate)"
         thirdDateLabel.text = "\(thirdDate)"
         fourthDateLabel.text = "\(fourthDate)"
+        
     }
     
     func addWeeksToDate(numberOfWeek: Int) -> Date {
@@ -174,7 +185,15 @@ public final class PodeliWidgetView: UIView {
         containerView.addSubview(serviceInfoLabel)
         containerView.addSubview(serviceInfoImageView)
         addFrameEqualitySubview(containerView)
-
+        serviceInfoLabel.text = "Краткие условия сервиса"
+        serviceInfoStackView.addArrangedSubview(serviceInfoLabel)
+        serviceInfoStackView.addArrangedSubview(serviceInfoImageView)
+        containerView.addSubview(serviceInfoStackView)
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showServiceInfo))
+        serviceInfoStackView.isUserInteractionEnabled = true
+        serviceInfoStackView.addGestureRecognizer(tapGestureRecognizer)
+        
         
         let bundle = Bundle(for: PodeliWidgetView.self)
         
@@ -201,10 +220,10 @@ public final class PodeliWidgetView: UIView {
         serviceInfoLabel.font = UIFont(name: "StyreneBLC-Medium", size: 11)
         serviceInfoLabel.textColor = UIColor(hexString: "323232")
         serviceInfoLabel.translatesAutoresizingMaskIntoConstraints = false
-
+        
         let infoGesture = UITapGestureRecognizer(target: self, action: #selector(showServiceInfo))
-          serviceInfoLabel.isUserInteractionEnabled = true
-          serviceInfoLabel.addGestureRecognizer(infoGesture)
+        serviceInfoLabel.isUserInteractionEnabled = true
+        serviceInfoLabel.addGestureRecognizer(infoGesture)
         
         [firstSeparator, secondSeparator, thirdSeparator, fourthSeparator].forEach {
             $0.backgroundColor = UIColor(hexString: "D9D9D9")
@@ -254,9 +273,6 @@ public final class PodeliWidgetView: UIView {
         let constraints = [
             self.heightAnchor.constraint(equalToConstant: 102),
             
-            serviceInfoLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: Constants.leftInset),
-            serviceInfoLabel.topAnchor.constraint(equalTo: stackMain.bottomAnchor, constant: 5),
-            serviceInfoLabel.heightAnchor.constraint(equalToConstant: 11),
             
             
             totalPriceLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: Constants.leftInset),
@@ -268,12 +284,15 @@ public final class PodeliWidgetView: UIView {
             logoImageView.heightAnchor.constraint(equalToConstant: 13),
             logoImageView.widthAnchor.constraint(equalToConstant: 80),
             
-            
-            serviceInfoImageView.leftAnchor.constraint(equalTo: serviceInfoLabel.rightAnchor, constant: 4),
-            serviceInfoImageView.topAnchor.constraint(equalTo: serviceInfoLabel.topAnchor),
-            serviceInfoImageView.heightAnchor.constraint(equalToConstant: 11),
-            serviceInfoImageView.widthAnchor.constraint(equalToConstant: 11),
-//            serviceInfoImageView.centerYAnchor.constraint(equalTo: serviceInfoLabel.centerYAnchor),
+            serviceInfoImageView.heightAnchor.constraint(equalToConstant: 12),
+            serviceInfoImageView.widthAnchor.constraint(equalToConstant: 12),
+            serviceInfoImageView.centerYAnchor.constraint(equalTo: serviceInfoStackView.centerYAnchor),
+            serviceInfoLabel.centerYAnchor.constraint(equalTo: serviceInfoStackView.centerYAnchor),
+
+            serviceInfoLabel.heightAnchor.constraint(equalToConstant: 12),
+            serviceInfoStackView.topAnchor.constraint(equalTo: firstPriceLabel.bottomAnchor, constant: 5),
+            serviceInfoStackView.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: Constants.leftInset),
+
             
             firstSeparator.widthAnchor.constraint(equalToConstant: separatorWidth),
             firstSeparator.heightAnchor.constraint(equalToConstant: 3),
@@ -309,8 +328,8 @@ public final class PodeliWidgetView: UIView {
         self.layoutIfNeeded()
     }
     
-    @objc func showServiceInfo() {
-        self.delegate?.showInfoService()
+    @objc private func showServiceInfo() {
+        delegate?.showInfoService()
     }
 }
 
